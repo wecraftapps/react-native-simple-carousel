@@ -1,0 +1,17 @@
+{
+  "name": "react-native-simple-carousel",
+  "version": "0.1.0",
+  "description": "Simple carousel for react-native. Using only js",
+  "main": "./build/index.js",
+  "scripts": {},
+  "keywords": [
+    "react-native",
+    "carousel"
+  ],
+  "author": "Frédéric Llorca",
+  "license": "ISC",
+  "dependencies": {
+    "react": "17.0.2",
+    "react-native": "0.66.4"
+  }
+}
