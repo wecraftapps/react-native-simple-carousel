@@ -42,6 +42,6 @@ return (
 Following methods area available using a ref
 
 | Name | Arguments | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | `previousPage` |  | function to navigate to the previous slide if possible |
 | `nextPage` |  | function to navigate to the next slide if possible |
