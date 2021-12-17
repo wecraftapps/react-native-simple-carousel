@@ -34,12 +34,11 @@ return (
 
 | Prop | Type | Optionnal | Description |
 | --- | --- | --- | --- |
-| `ref` | function | true | function to be called to update the current page index |
 | `setIndex` | function | true | function to be called to update the current page index |
 
 ## Methods
 
-Following methods area available using a ref
+Following methods are available using a ref
 
 | Name | Arguments | Description |
 | --- | --- | --- |
