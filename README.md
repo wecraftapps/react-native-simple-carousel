@@ -35,6 +35,7 @@ return (
 | Prop | Type | Optionnal | Description |
 | --- | --- | --- | --- |
 | `setIndex` | function | true | function to be called to update the current page index |
+| `cardLayout` | boolean | true | boolean that indicates if the layout of elements must be cards |
 
 ## Methods
 
