@@ -62,11 +62,11 @@ const Carousel = ({ children, setIndex, cardLayout, offset }: Props, ref): JSX.E
   const onScroll = (data: any): void => {
     const { x: offsetX } = data.nativeEvent.contentOffset;
 
-    const newPage = Math.round(parseFloat(offsetX) / width);
+    const newPage = Math.round(parseFloat(offsetX) / ( cardLayout? ITEM_WIDTH : width));
 
     // Updating currentPage when it changes
     if (newPage !== currentPage) {
-      setCurrentPage(Math.round(parseFloat(offsetX) / width));
+      setCurrentPage(Math.round(parseFloat(offsetX) / ( cardLayout? ITEM_WIDTH : width)));
     }
 
     if (cardLayout) {
