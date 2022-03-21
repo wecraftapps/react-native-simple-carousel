@@ -11,13 +11,15 @@ interface Props {
   children: JSX.Element | JSX.Element[];
   setIndex?: (number) => void;
   cardLayout?: boolean;
+  offset?: number;
 }
 
 const { width, height } = Dimensions.get('window');
-const OFFSET = 40;
-const ITEM_WIDTH = width - OFFSET * 2;
 
-const Carousel = ({ children, setIndex, cardLayout }: Props, ref): JSX.Element => {
+const Carousel = ({ children, setIndex, cardLayout, offset }: Props, ref): JSX.Element => {
+  const OFFSET = offset || 40;
+  const ITEM_WIDTH = width - OFFSET * 2;
+
   const [currentPage, setCurrentPage] = useState(0);
   const scrollViewRef = useRef<any>();
   const scrollX = React.useRef(new Animated.Value(0)).current;
