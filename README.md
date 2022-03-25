@@ -1,5 +1,13 @@
 # react-native-simple-carousel
 
+Package to render a simple carousel with React Native. Works on Android and iOS.
+
+## Showcase
+
+### Basic usage
+
+![react-native-simple-carousel](https://media.giphy.com/media/MsLMrLYq6vA0F1HgN8/giphy.gif)
+
 ## Installation
 
 ```
@@ -46,3 +54,5 @@ Following methods are available using a ref
 | --- | --- | --- |
 | `previousPage` |  | function to navigate to the previous slide if possible |
 | `nextPage` |  | function to navigate to the next slide if possible |
+
+## Examples
