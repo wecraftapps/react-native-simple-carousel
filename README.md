@@ -4,9 +4,15 @@ Package to render a simple carousel with React Native. Works on Android and iOS.
 
 ## Showcase
 
-### Basic usage
+### Basic usage for fullscreen slides
 
 ![react-native-simple-carousel](https://media.giphy.com/media/MsLMrLYq6vA0F1HgN8/giphy.gif)
+[example component for basic usage](https://github.com/wecraftapps/react-native-simple-carousel/blob/master/examples/basic-usage.tsx)
+
+### Basic usage for card layout
+
+![react-native-simple-carousel](https://media.giphy.com/media/zpX55BChsP8Rr5Fmgg/giphy.gif)
+[example component for basic usage card layout](https://github.com/wecraftapps/react-native-simple-carousel/blob/master/examples/basic-usage-card-layout.tsx)
 
 ## Installation
 
