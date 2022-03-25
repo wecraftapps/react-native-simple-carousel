@@ -63,5 +63,3 @@ Following methods are available using a ref
 | --- | --- | --- |
 | `previousPage` |  | function to navigate to the previous slide if possible |
 | `nextPage` |  | function to navigate to the next slide if possible |
-
-## Examples
