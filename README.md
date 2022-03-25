@@ -25,7 +25,7 @@ npm i --save @wecraftapps/react-native-simple-carousel
 
 ## Basic usage
 
-```
+```javascript
 import { SimpleCarousel } from '@wecraftapps/react-native-simple-carousel';
 
 ...
