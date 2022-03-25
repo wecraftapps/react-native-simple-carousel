@@ -1,6 +1,6 @@
 {
   "name": "@wecraftapps/react-native-simple-carousel",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Simple carousel for react-native. Using only js",
   "main": "index.js",
   "scripts": {},
