@@ -114,7 +114,7 @@ const Carousel = ({ children, setIndex, cardLayout, offset }: Props, ref): JSX.E
       <View
         style={{
           width,
-          height,
+          height: '100%',
           justifyContent: 'center',
           alignItems: 'center',
         }}
