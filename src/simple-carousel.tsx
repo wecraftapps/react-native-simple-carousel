@@ -12,11 +12,12 @@ interface Props {
   setIndex?: (number) => void;
   cardLayout?: boolean;
   offset?: number;
+  scrollEnabled?: boolean;
 }
 
 const { width, height } = Dimensions.get('window');
 
-const Carousel = ({ children, setIndex, cardLayout, offset }: Props, ref): JSX.Element => {
+const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled }: Props, ref): JSX.Element => {
   const OFFSET = offset || 40;
   const ITEM_WIDTH = width - OFFSET * 2;
 
@@ -154,7 +155,8 @@ const Carousel = ({ children, setIndex, cardLayout, offset }: Props, ref): JSX.E
             useNativeDriver: false,
           },
         )}
-        scrollEventThrottle={12}>
+        scrollEventThrottle={12}
+        scrollEnabled={typeof scrollEnabled === 'boolean' ? scrollEnabled : true}>
         {pages}
       </ScrollView>
     </View>

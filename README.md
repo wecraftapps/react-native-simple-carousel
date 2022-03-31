@@ -49,11 +49,12 @@ return (
 
 ## Props
 
-| Prop | Type | Optionnal | Description |
+| Prop | Type | Optionnal | Description | Default |
 | --- | --- | --- | --- |
-| `setIndex` | function | true | function to be called to update the current page index |
-| `cardLayout` | boolean | true | boolean that indicates if the layout of elements must be cards |
-| `offset` | number | true | margin of elements if `cardLayout` is set to `true`. Default is 40 |
+| `setIndex` | function | true | function to be called to update the current page index | |
+| `cardLayout` | boolean | true | boolean that indicates if the layout of elements must be cards | `false` |
+| `offset` | number | true | margin of elements if `cardLayout` is set to `true` | `40` |
+| `scrollEnabled` | boolean | true | boolean that indicates if the carousel can be scrolled | `true` |
 
 ## Methods
 
