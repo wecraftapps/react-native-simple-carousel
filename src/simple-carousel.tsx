@@ -13,15 +13,16 @@ interface Props {
   cardLayout?: boolean;
   offset?: number;
   scrollEnabled?: boolean;
+  initialSlide?: number;
 }
 
 const { width, height } = Dimensions.get('window');
 
-const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled }: Props, ref): JSX.Element => {
+const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled, initialSlide }: Props, ref): JSX.Element => {
   const OFFSET = offset || 40;
   const ITEM_WIDTH = width - OFFSET * 2;
 
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(initialSlide || 0);
   const scrollViewRef = useRef<any>();
   const scrollX = React.useRef(new Animated.Value(0)).current;
 
@@ -30,6 +31,20 @@ const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled }: Pro
     previousPage,
     nextPage,
   }));
+
+  // Effect to scroll to the intial slide without animation
+  useEffect(() => {
+    if (initialSlide) {
+      // Added timeout as iOS didn't scroll to initial slide
+      setTimeout(() => {
+        scrollViewRef.current.scrollTo({
+          x: initialSlide * width,
+          y: 0,
+          animated: false,
+        });
+      }, 50);
+    }
+  }, [initialSlide]);
 
   // Effect to update current index to parent
   useEffect(() => {
