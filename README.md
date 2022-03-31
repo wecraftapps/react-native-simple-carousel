@@ -55,6 +55,7 @@ return (
 | `cardLayout` | boolean | true | boolean that indicates if the layout of elements must be cards | `false` |
 | `offset` | number | true | margin of elements if `cardLayout` is set to `true` | `40` |
 | `scrollEnabled` | boolean | true | boolean that indicates if the carousel can be scrolled | `true` |
+| `initialSlide` | number | true | initial slide index | `0` |
 
 ## Methods
 
