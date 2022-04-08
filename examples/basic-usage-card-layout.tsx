@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-import { SimpleCarousel } from '@wecraftapps/react-native-simple-carousel';
+import { SimpleCarousel, CAROUSEL_LAYOUTS } from '@wecraftapps/react-native-simple-carousel';
 
 const BasicUsageCardLayout = (): JSX.Element => {
   const [index, setIndex] = useState(0);
@@ -9,7 +9,15 @@ const BasicUsageCardLayout = (): JSX.Element => {
 
   return (
     <View style={styles.container}>
-      <SimpleCarousel ref={carouselRef} setIndex={setIndex} cardLayout>
+      <SimpleCarousel
+        ref={carouselRef}
+        setIndex={setIndex} 
+        layout={CAROUSEL_LAYOUTS.CARD}
+        cardLayoutOptions={{
+          offset: 40,
+          adjacentCardsScale: 0.85,
+          adjacentCardsOpacity: 0.5,
+        }}>
         <View style={[styles.page, { backgroundColor: 'yellow' }]}>
           <Text>PAGE 0</Text>
         </View>

@@ -6,20 +6,22 @@ import React, {
   useEffect,
 } from 'react';
 import { View, StyleSheet, ScrollView, Dimensions, Animated } from 'react-native';
+import CardLayoutOptions from './types/card-layout-options.type';
+import { CAROUSEL_LAYOUTS } from './enums/carousel-layouts.enum';
 
 interface Props {
   children: JSX.Element | JSX.Element[];
   setIndex?: (number) => void;
-  cardLayout?: boolean;
-  offset?: number;
+  layout?: CAROUSEL_LAYOUTS;
+  cardLayoutOptions: CardLayoutOptions;
   scrollEnabled?: boolean;
   initialSlide?: number;
 }
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
-const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled, initialSlide }: Props, ref): JSX.Element => {
-  const OFFSET = offset || 40;
+const Carousel = ({ children, setIndex, layout, cardLayoutOptions, scrollEnabled, initialSlide }: Props, ref): JSX.Element => {
+  const OFFSET = cardLayoutOptions?.offset || 40;
   const ITEM_WIDTH = width - OFFSET * 2;
 
   const [currentPage, setCurrentPage] = useState(initialSlide || 0);
@@ -78,14 +80,14 @@ const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled, initi
   const onScroll = (data: any): void => {
     const { x: offsetX } = data.nativeEvent.contentOffset;
 
-    const newPage = Math.round(parseFloat(offsetX) / ( cardLayout? ITEM_WIDTH : width));
+    const newPage = Math.round(parseFloat(offsetX) / ( layout === 'CARD' ? ITEM_WIDTH : width));
 
     // Updating currentPage when it changes
     if (newPage !== currentPage) {
-      setCurrentPage(Math.round(parseFloat(offsetX) / ( cardLayout? ITEM_WIDTH : width)));
+      setCurrentPage(Math.round(parseFloat(offsetX) / ( layout === 'CARD' ? ITEM_WIDTH : width)));
     }
 
-    if (cardLayout) {
+    if (layout === 'CARD') {
       Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
         useNativeDriver: false,
       });
@@ -93,30 +95,32 @@ const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled, initi
   };
 
   // Renders internal pages from prop "children"
-  const pages = Object.keys(children).map((p: string, idx: number) => {
-    if (cardLayout) {
+  const pages = Object.keys(children).map((p: string, index: number) => {
+    if (layout === 'CARD') {
       const inputRange = [
-        (idx - 1) * ITEM_WIDTH,
-        idx * ITEM_WIDTH,
-        (idx + 1) * ITEM_WIDTH,
+        (index - 1) * ITEM_WIDTH,
+        index * ITEM_WIDTH,
+        (index + 1) * ITEM_WIDTH,
       ];
 
+      // Calculate the size of adjacent cards
       const translate = scrollX.interpolate({
         inputRange,
-        outputRange: [0.85, 1, 0.85],
+        outputRange: [cardLayoutOptions?.adjacentCardsScale || 0.85, 1, cardLayoutOptions?.adjacentCardsScale || 0.85],
       });
 
+      // Calculates the opacity of adjacent cards
       const opacity = scrollX.interpolate({
         inputRange,
-        outputRange: [0.5, 1, 0.5],
+        outputRange: [cardLayoutOptions?.adjacentCardsOpacity || 0.5, 1, cardLayoutOptions?.adjacentCardsOpacity || 0.5],
       });
 
       return (
         <Animated.View
           style={{
             width: ITEM_WIDTH,
-            marginLeft: idx === 0 ? OFFSET : 0,
-            marginRight: idx === Object.keys(children).length - 1 ? OFFSET : 0,
+            marginLeft: index === 0 ? OFFSET : 0,
+            marginRight: index === Object.keys(children).length - 1 ? OFFSET : 0,
             opacity: opacity,
             transform: [{ scale: translate }],
           }}
@@ -152,7 +156,7 @@ const Carousel = ({ children, setIndex, cardLayout, offset, scrollEnabled, initi
         disableIntervalMomentum
         showsHorizontalScrollIndicator={false}
         bounces={false}
-        snapToInterval={cardLayout ? ITEM_WIDTH : width}
+        snapToInterval={layout === 'CARD' ? ITEM_WIDTH : width}
         onScroll={Animated.event(
           [
             {
