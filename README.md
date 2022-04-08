@@ -51,7 +51,7 @@ return (
 | Prop | Type | Optionnal | Description | Default |
 | --- | --- | --- | --- | --- |
 | `setIndex` | function | true | function to be called to update the current page index | `null` |
-| `layout` | `'FULLSCREEN' | 'CARD'` | true | string that indicates the type of layout the carousel will have | `FULLSCREEN` |
+| `layout` | `CAROUSEL_LAYOUTS` | true | string that indicates the type of layout the carousel will have (see the `Types` section for details) | `FULLSCREEN` |
 | `cardLayoutOptions` | `CardLayoutOptions` | true | object describing the carousel layout using `layout = 'CARD'` (see the `Types` section for details) | `null` |
 | `scrollEnabled` | boolean | true | boolean that indicates if the carousel can be scrolled | `true` |
 | `initialSlide` | number | true | initial slide index | `0` |
