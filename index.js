@@ -1,2 +1,3 @@
 import SimpleCarousel from './src/simple-carousel';
-export { SimpleCarousel };
+import { CAROUSEL_LAYOUTS } from './src/enums/carousel-layouts';
+export { SimpleCarousel, CAROUSEL_LAYOUTS };

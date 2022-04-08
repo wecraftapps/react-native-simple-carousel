@@ -1,0 +1,4 @@
+export enum CAROUSEL_LAYOUTS {
+  FULLSCREEN = 'FULLSCREEN',
+  CARD = 'CARD',
+}

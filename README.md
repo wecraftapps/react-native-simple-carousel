@@ -11,7 +11,6 @@ Package to render a simple carousel with React Native. Works on Android and iOS.
 [example component for basic usage](https://github.com/wecraftapps/react-native-simple-carousel/blob/master/examples/basic-usage.tsx)
 
 ### Basic usage for card layout
-Thanks to @chanonroy for tutorial : https://chanonroy.medium.com/building-a-netflix-style-card-carousel-in-react-native-649afcd8d78e
 
 ![react-native-simple-carousel](https://media.giphy.com/media/WFtP6wdT7bsJrYNgxj/giphy.gif)
 
@@ -52,8 +51,8 @@ return (
 | Prop | Type | Optionnal | Description | Default |
 | --- | --- | --- | --- |
 | `setIndex` | function | true | function to be called to update the current page index | |
-| `cardLayout` | boolean | true | boolean that indicates if the layout of elements must be cards | `false` |
-| `offset` | number | true | margin of elements if `cardLayout` is set to `true` | `40` |
+| `layout` | `'FULLSCREEN' | 'CARD'` | true | string that indicates the type of layout the carousel will have | `FULLSCREEN` |
+| `cardLayoutOptions` | `cardLayoutOptions` | true | object describing the carousel layout using `cardLayout` (see `Types` section for details) | `null` |
 | `scrollEnabled` | boolean | true | boolean that indicates if the carousel can be scrolled | `true` |
 | `initialSlide` | number | true | initial slide index | `0` |
 
@@ -65,3 +64,25 @@ Following methods are available using a ref
 | --- | --- | --- |
 | `previousPage` |  | function to navigate to the previous slide if possible |
 | `nextPage` |  | function to navigate to the next slide if possible |
+
+## Types
+
+```
+type CAROUSEL_LAYOUTS {
+  FULLSCREEN = 'FULLSCREEN',
+  CARD = 'CARD',
+}
+```
+
+```
+type CardLayoutOptions {
+  offset: number, // horizontal space to see the adjacent cards. Default 40,
+  adjacentCardsScale: number, // scale of the adjacent cards. Default 0.8,
+  adjacentCardsOpacity: number, // default 0.5,
+}
+```
+
+
+## Special thanks
+
+Special thanks to @chanonroy for tutorial : https://chanonroy.medium.com/building-a-netflix-style-card-carousel-in-react-native-649afcd8d78e
