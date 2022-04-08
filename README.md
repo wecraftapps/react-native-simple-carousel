@@ -49,10 +49,10 @@ return (
 ## Props
 
 | Prop | Type | Optionnal | Description | Default |
-| --- | --- | --- | --- |
-| `setIndex` | function | true | function to be called to update the current page index | |
+| --- | --- | --- | --- | --- |
+| `setIndex` | function | true | function to be called to update the current page index | `null` |
 | `layout` | `'FULLSCREEN' | 'CARD'` | true | string that indicates the type of layout the carousel will have | `FULLSCREEN` |
-| `cardLayoutOptions` | `cardLayoutOptions` | true | object describing the carousel layout using `cardLayout` (see `Types` section for details) | `null` |
+| `cardLayoutOptions` | `CardLayoutOptions` | true | object describing the carousel layout using `layout = 'CARD'` (see the `Types` section for details) | `null` |
 | `scrollEnabled` | boolean | true | boolean that indicates if the carousel can be scrolled | `true` |
 | `initialSlide` | number | true | initial slide index | `0` |
 
@@ -68,17 +68,17 @@ Following methods are available using a ref
 ## Types
 
 ```
-type CAROUSEL_LAYOUTS {
+enum CAROUSEL_LAYOUTS {
   FULLSCREEN = 'FULLSCREEN',
   CARD = 'CARD',
 }
 ```
 
 ```
-type CardLayoutOptions {
-  offset: number, // horizontal space to see the adjacent cards. Default 40,
-  adjacentCardsScale: number, // scale of the adjacent cards. Default 0.8,
-  adjacentCardsOpacity: number, // default 0.5,
+interface CardLayoutOptions {
+  offset: number, // horizontal space to see the adjacent cards. Default is 40,
+  adjacentCardsScale: number, // scale of the adjacent cards. Default is 0.85,
+  adjacentCardsOpacity: number, // default is 0.5,
 }
 ```
 
