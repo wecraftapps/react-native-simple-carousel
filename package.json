@@ -11,8 +11,8 @@
   "author": "We Craft Apps",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-native": "^0.64.0"
+    "react": "18.0.2",
+    "react-native": "0.71.1"
   },
   "homepage": "https://github.com/wecraftapps/react-native-simple-carousel/blob/master/README.md"
 }
